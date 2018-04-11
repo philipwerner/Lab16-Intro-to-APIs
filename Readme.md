@@ -1,65 +1,84 @@
-![cf](http://i.imgur.com/7v5ASc8.png) Lab 16: Intro to APIs
-=====================================
+# Lab16 Intro to APIs
 
-## To Submit this Assignment
-- fork this repository
-- write all of your code in a directory named `lab-#`; + `<your name>` **e.g.** `lab16-amanda`
-- push to your repository
-- submit a pull request to this repository
-- submit a link to your PR in canvas
+## Todo List Api
+This is a simple API that contains todo list items. You can get all todo list
+items or get item by id. You can also create new todo list items and edit them.
+You are also able to delete items.
 
+## Tools Used
+Microsoft Visual Studio Community Version 15.5.7
 
-## Directions
+C#
 
-1. Watch this video with Daniel Roth [Here](https://binged.it/2v2AXFe) (~60 min)
-1. Read the tutorial located [Here](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api)
+ASP.Net Core
 
-Using both of the resources above, create an API in .NET Core that conducts the standard HTTP verbs (Get,Put,Post,Delete) for a "To-Do" list.
-Your "To-Do" list will consist of indivudal tasks that can be saved into the database and extracted as needed. You sould also have the ability to 
-get all of the tasks by a simple get request. 
-<br />
+Postman
 
-*Use Postman to test your endpoints.* 
+## Getting Started
 
+Clone this repository to your local machine.
+```
+$ git clone 
+```
+Once downloaded, cd into the ```Lab16-Intro-to-APIs``` directory.
+```
+$ cd Lab16-Intro-to-APIs
+```
+The cd into ```Lab16-Intro-to-APIs``` directory.
+```
+$ cd Lab16-Intro-to-APIs
+```
+The cd into the second ```Lab16Phil``` directory.
+```
+$ cd Lab16Phil
+```
+Then run .NET build.
+```
+$ dotnet build
+```
+Once that is complete, run the program.
+```
+$ dotnet run
+```
 
-## ReadMe
-A README is a module consumer's first -- and maybe only -- look into your creation. The consumer wants a module to fulfill their need, so you must explain exactly what need your module fills, and how effectively it does so.
-<br />
-Your job is to
+## API Calls
 
-1. tell them what it is (with context)
-2. show them what it looks like in action
-3. show them how they use it
-4. tell them any other relevant details
-<br />
+### Get
 
-This is ***your*** job. It's up to the module creator to prove that their work is a shining gem in the sea of slipshod modules. Since so many developers' eyes will find their way to your README before anything else, quality here is your public-facing measure of your work.
+To get all items:
 
-<br /> <br /> Refer to the sample-README in the class repo for an example. 
-- [Reference](https://github.com/noffle/art-of-readme)
+```http://localhost:XXXXX/api/todo```
 
-## Rubric
-- 7pts: Program meets all requirements described in Lab directions
-**Tests are not required for this lab**
+To get item by ID:
 
-	Points  | Reasoning | 
-	 ------------ | :-----------: | 
-	7       | Program runs as expected, no exceptions during execution |
-	5       | Program runs/compiles, Program contains logic/process errors|
-	4       | Program runs/compiles, but throws exceptions during execution |
-	2       | Missing tests // tests are not passing // not enough valid tests |
-	2       | Missing Readme Document // Readme Document does not meet standards |
-	0       | Program does not compile/run. Build Errors // Required naming conventions not met |
-	0       | No Submission |
+```http://localhost:XXXXX/api/todo/X```
 
-- 3pts: Code meets industry standards
-	- These points are only awardable if you score at minimum a 5/7 on above criteria
+Create a new item:
 
-	Points  | Reasoning | 
-	 ------------ | :-----------: | 
-	3       | Code meets Industry Standards // methods and variables namings are appropriate // Selective and iterative statements are used appropriately, Fundamentals are propertly executed // Clearly and cleanly commented |
-	2       | syntax for naming conventions are not correct (camelCasing and PascalCasing are used appropriately) // slight errors in use of fundamentals // Missing some comments |
-	1       | Inappropriate naming conventions, and/or inappropriate use of fundamentals // Code is not commented  |
-	0       | No Submission or incomplete submission |
+```http://localhost:XXXXX/api/todo```
 
+JSON example:
 
+```
+    {
+        "name": "Take down christmas decorations",
+        "isComplete": true
+    }
+```
+
+Update existing item:
+
+```http://localhost:XXXXX/api/todo/X```
+
+JSON Example:
+```
+{
+    "id": X,
+    "name": "Take down christmas decorations",
+    "isComplete": false
+}
+```
+
+Delete an item:
+
+```http://localhost:XXXXX/api/todo/X```
